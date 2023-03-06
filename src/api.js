@@ -2,7 +2,7 @@
 const base_url = 'https://api.rawg.io/api/';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const keyParams = `key=${apiKey}&`;
+const keyParams = `key=${apiKey}`;
 
 // Getting the date
 const getCurrentMonth = () => {
@@ -33,9 +33,9 @@ const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 // Popular games
-const popular_games = `games?${keyParams}dates=${lastYear},${currentDate}&ordering=-rating&page_size=20`;
-const upcoming_games = `games?${keyParams}dates=${currentDate},${nextYear}&ordering=-added&page_size=20`;
-const newGames = `games?${keyParams}dates=${lastYear},${currentDate}&ordering=-released&page_size=20`;
+const popular_games = `games?${keyParams}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=20`;
+const upcoming_games = `games?${keyParams}&dates=${currentDate},${nextYear}&ordering=-added&page_size=20`;
+const newGames = `games?${keyParams}&dates=${lastYear},${currentDate}&ordering=-released&page_size=20`;
 
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
@@ -43,12 +43,12 @@ export const newGamesURL = () => `${base_url}${newGames}`;
 
 // Game Details
 export const gameDetailsURL = (gameId) =>
-	`${base_url}games/${gameId}`;
+	`${base_url}games/${gameId}/${keyParams}`;
 
 // Game ScreenShots
 export const gameScreenshotURL = (gameId) =>
-	`${base_url}games/${gameId}/screenshots`;
+	`${base_url}games/${gameId}/screenshots/${keyParams}`;
 
 // Searched game
 export const searchGameURL = (gameName) =>
-	`${base_url}games?search=${gameName}&page_size=10`;
+	`${base_url}games?${keyParams}&search=${gameName}&page_size=10`;
