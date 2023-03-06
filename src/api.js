@@ -43,11 +43,11 @@ export const newGamesURL = () => `${base_url}${newGames}`;
 
 // Game Details
 export const gameDetailsURL = (gameId) =>
-	`${base_url}games/${gameId}/${keyParams}`;
+	`${base_url}games/${gameId}?${keyParams}`;
 
 // Game ScreenShots
 export const gameScreenshotURL = (gameId) =>
-	`${base_url}games/${gameId}/screenshots/${keyParams}`;
+	`${base_url}games/${gameId}/screenshots?${keyParams}`;
 
 // Searched game
 export const searchGameURL = (gameName) =>
