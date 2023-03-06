@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { loadGames } from '../redux/actions/gamesAction';
 import styled from 'styled-components';
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import {
+	motion,
+	AnimatePresence,
+	AnimateSharedLayout,
+} from 'framer-motion';
 import Game from '../components/Game';
 import GameDetail from '../components/GameDetail';
 import { fadeIn } from '../animation';
@@ -26,7 +30,10 @@ const Home = () => {
 	);
 
 	return (
-		<GameList variants={fadeIn} initial='hidden' animate='show'>
+		<GameList
+			variants={fadeIn}
+			initial='hidden'
+			animate='show'>
 			<AnimateSharedLayout type='crossfade'>
 				<AnimatePresence>
 					{pathId && <GameDetail pathId={pathId} />}
@@ -36,7 +43,10 @@ const Home = () => {
 						<motion.h2>Search Results</motion.h2>
 						<Games>
 							{searched.map((game) => (
-								<Game key={game.id} game={game} />
+								<Game
+									key={game.id}
+									game={game}
+								/>
 							))}
 						</Games>
 					</motion.div>
@@ -47,7 +57,10 @@ const Home = () => {
 					<motion.h2>Upcoming Games</motion.h2>
 					<Games>
 						{upcoming.map((game) => (
-							<Game key={game.id} game={game} />
+							<Game
+								key={game.id}
+								game={game}
+							/>
 						))}
 					</Games>
 				</motion.div>
@@ -55,7 +68,10 @@ const Home = () => {
 					<motion.h2>Popular Games</motion.h2>
 					<Games>
 						{popular.map((game) => (
-							<Game key={game.id} game={game} />
+							<Game
+								key={game.id}
+								game={game}
+							/>
 						))}
 					</Games>
 				</motion.div>
@@ -63,12 +79,15 @@ const Home = () => {
 					<motion.h2>New Games</motion.h2>
 					<Games>
 						{newGames.map((game) => (
-							<Game key={game.id} game={game} />
+							<Game
+								key={game.id}
+								game={game}
+							/>
 						))}
 					</Games>
 				</motion.div>
 			</AnimateSharedLayout>
-			8
+			<a href='https://rawg.io/apidocs'>Data supplied by RAWG</a>
 		</GameList>
 	);
 };
